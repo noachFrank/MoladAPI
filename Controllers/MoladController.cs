@@ -20,8 +20,8 @@ namespace MoladAPI.Controllers
             try
             {
                 var logic = new MoladLogic();
-                var molad = logic.GetMolad();
-                return new JsonResult(molad);
+                logic.EnglishSearch(DateTime.Today);
+                return new JsonResult(logic.GetMolad());
             }
             catch (Exception ex)
             {
@@ -80,6 +80,20 @@ namespace MoladAPI.Controllers
             }
         }
 
-        
+        [HttpPost("SearchByEnglishDate")]
+        public IActionResult SearchByEnglishDate(DateTime search)
+        {
+            try
+            {
+                var logic = new MoladLogic();
+                logic.EnglishSearch(search);
+                return new JsonResult(logic.GetMolad());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while processing GoForward.");
+                return StatusCode(500, "An internal server error occurred.");
+            }
+        }
     }
 }
