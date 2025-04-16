@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Extensions;
 using MoladAPI;
+using MoladAPI.MoladObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +23,9 @@ namespace MoladWithSearch
 
         private int _index;
 
-        //public string _jewishMonthAndYear;
 
         public MoladLogic()
         {
-            // _seedMolad = new DateTime(2016, 10, 01, 14, 40, 13, 000);
             _cycle19Year = JewishMonths();
             _jewishYear = 5777;
             _index = 0;
@@ -36,8 +35,6 @@ namespace MoladWithSearch
                 JewishMonth = _cycle19Year[_index],
                 JewishYear = _jewishYear
             };
-            //_jewishMonthAndYear = $"{_cycle19Year[_index]} of {_jewishYear}";
-
         }
 
         public MoladObject GetMolad()
@@ -52,70 +49,11 @@ namespace MoladWithSearch
             }
         }
 
-        #region for win forms
-
-
-        //private void btnNext_Click(object sender, EventArgs e)
-        //{
-        //    // Increments The Molad By One And Displays It
-
-        //    btnPrev.Enabled = true;
-
-        //    GoForward();
-
-        //    btnNext.Enabled = _molad <= DateTime.MaxValue.AddDays(-4);
-
-
-        //    txtMolad.Text = _molad.ToString();
-
-        //    txtMonth.Text = $"Molad Of {_cycle19Year[_index]} {_jewishYear}";
-        //}
-
-        //private void btnPrev_Click_1(object sender, EventArgs e)
-        //{
-
-        //    // Decrements The Molad By One And Displays It
-
-        //    btnNext.Enabled = true;
-
-        //    GoBackward();
-
-        //    btnPrev.Enabled = _molad >= DateTime.MinValue.AddMonths(1);
-
-        //    txtMolad.Text = _molad.ToString();
-
-        //    txtMonth.Text = $"Molad Of {_cycle19Year[_index]} {_jewishYear}";
-
-        //}
-
-        //private void btnSearch_Click_1(object sender, EventArgs e)
-        //{
-        //    // Opens Form To Enter Search And Displays It
-
-        //    Searcher s = new Searcher();
-
-        //    s.ShowDialog();
-
-        //    if (s.GetMonthSearch() == "" || s.GetYearSearch() == "")
-        //    {
-        //        return;
-        //    }
-
-
-        //    MoladSearch(s.GetMonthSearch(), int.Parse(s.GetYearSearch()));
-
-        //    txtMolad.Text = _molad.ToString();
-
-        //    txtMonth.Text = $"Molad Of {_cycle19Year[_index]} {_jewishYear}";
-
-
-        //}
-        #endregion
         public void HebrewSearch(string month, int year)
         {
             try
             {
-                // Searches For Input Molad
+                // Searches For Input month and year
 
                 if (year >= _jewishYear)
                 {
@@ -136,7 +74,7 @@ namespace MoladWithSearch
             }
             catch (Exception exc)
             {
-                //return null;
+
             }
         }
 
@@ -147,7 +85,7 @@ namespace MoladWithSearch
             {
                 var range = new MoladRange(search.AddDays(-14).AddHours(-18).AddMinutes(-22).AddSeconds(-3).AddMilliseconds(-(1000 / 3)),
                                              search.AddDays(14).AddHours(18).AddMinutes(22).AddSeconds(3).AddMilliseconds(1000 / 3));
-                if(search >= _seedMolad.Molad)
+                if (search >= _seedMolad.Molad)
                 {
                     while (!range.IsInRange(_seedMolad.Molad))
                     {
@@ -162,7 +100,7 @@ namespace MoladWithSearch
                     }
                 }
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
 
             }
@@ -191,6 +129,9 @@ namespace MoladWithSearch
                 _seedMolad.Molad = _seedMolad.Molad.AddDays(29).AddHours(12).AddMinutes(44).AddSeconds(3).AddMilliseconds(1000 / 3);
                 _seedMolad.JewishMonth = _cycle19Year[_index];
                 _seedMolad.JewishYear = _jewishYear;
+
+                //to be implemented later the max hebrew year is 13760 which would equal datetime.maxvalue
+                //add error handling for when date tries going further
 
             }
             catch (Exception exc)
@@ -222,6 +163,9 @@ namespace MoladWithSearch
                 _seedMolad.Molad = _seedMolad.Molad.AddDays(-29).AddHours(-12).AddMinutes(-44).AddSeconds(-3).AddMilliseconds(-(1000 / 3));
                 _seedMolad.JewishMonth = _cycle19Year[_index];
                 _seedMolad.JewishYear = _jewishYear;
+
+                //to be implemented later the min hebrew year is 3761 which would equal datetime.minvalue
+                //add error handling for when date tries going further
 
             }
             catch (Exception exc)
@@ -280,121 +224,6 @@ namespace MoladWithSearch
                         allYears.AddRange(regularYear);
                 }
                 return allYears;
-                ////1
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////2
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////3
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////4
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////5
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////6
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////7
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////8
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////9
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////10
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////11
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////12
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////13
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////14
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////15
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////16
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////17
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                ////18
-                //for (int i = 0; i < regularYear.Count; i++)
-                //{
-                //    allYears.Add(regularYear[i]);
-                //}
-
-                ////19
-                //for (int i = 0; i < leapYear.Count; i++)
-                //{
-                //    allYears.Add(leapYear[i]);
-                //}
-
-                //return allYears;
             }
             catch (Exception exc)
             {
