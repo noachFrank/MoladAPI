@@ -1,6 +1,4 @@
-﻿using Microsoft.OpenApi.Extensions;
-using MoladAPI;
-using MoladAPI.MoladObjects;
+﻿using MoladAPI.MoladObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -183,34 +181,34 @@ namespace MoladWithSearch
 
                 List<JewishMonths> regularYear = new List<JewishMonths>();
 
-                regularYear.Add(MoladAPI.JewishMonths.Tishrei);
-                regularYear.Add(MoladAPI.JewishMonths.Cheshvan);
-                regularYear.Add(MoladAPI.JewishMonths.Kislev);
-                regularYear.Add(MoladAPI.JewishMonths.Teves);
-                regularYear.Add(MoladAPI.JewishMonths.Shevat);
-                regularYear.Add(MoladAPI.JewishMonths.Adar);
-                regularYear.Add(MoladAPI.JewishMonths.Nissan);
-                regularYear.Add(MoladAPI.JewishMonths.Iyar);
-                regularYear.Add(MoladAPI.JewishMonths.Sivan);
-                regularYear.Add(MoladAPI.JewishMonths.Tamuz);
-                regularYear.Add(MoladAPI.JewishMonths.Av);
-                regularYear.Add(MoladAPI.JewishMonths.Elul);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Tishrei);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Cheshvan);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Kislev);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Teves);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Shevat);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Adar);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Nissan);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Iyar);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Sivan);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Tamuz);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Av);
+                regularYear.Add(MoladAPI.MoladObjects.JewishMonths.Elul);
 
                 List<JewishMonths> leapYear = new List<JewishMonths>();
 
-                leapYear.Add(MoladAPI.JewishMonths.Tishrei);
-                leapYear.Add(MoladAPI.JewishMonths.Cheshvan);
-                leapYear.Add(MoladAPI.JewishMonths.Kislev);
-                leapYear.Add(MoladAPI.JewishMonths.Teves);
-                leapYear.Add(MoladAPI.JewishMonths.Shevat);
-                leapYear.Add(MoladAPI.JewishMonths.Adar1);
-                leapYear.Add(MoladAPI.JewishMonths.Adar2);
-                leapYear.Add(MoladAPI.JewishMonths.Nissan);
-                leapYear.Add(MoladAPI.JewishMonths.Iyar);
-                leapYear.Add(MoladAPI.JewishMonths.Sivan);
-                leapYear.Add(MoladAPI.JewishMonths.Tamuz);
-                leapYear.Add(MoladAPI.JewishMonths.Av);
-                leapYear.Add(MoladAPI.JewishMonths.Elul);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Tishrei);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Cheshvan);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Kislev);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Teves);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Shevat);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Adar1);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Adar2);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Nissan);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Iyar);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Sivan);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Tamuz);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Av);
+                leapYear.Add(MoladAPI.MoladObjects.JewishMonths.Elul);
 
 
 
