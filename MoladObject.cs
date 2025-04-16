@@ -4,7 +4,7 @@
     {
         public DateTime Molad { get; set; }
 
-        public JewishMonths JewishMonth { get; set; }
+        public string JewishMonth { get; set; }
 
         public int JewishYear { get; set; }
 

@@ -80,20 +80,6 @@ namespace MoladAPI.Controllers
             }
         }
 
-        [HttpPost("SearchByEnglishDate")]
-        public IActionResult SearchByEnglishDate([FromBody]DateTime search)
-        {
-            try
-            {
-                var logic = new MoladLogic();
-                logic.EnglishSearch(search);
-                return new JsonResult(logic.GetMolad());
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while processing GoForward.");
-                return StatusCode(500, "An internal server error occurred.");
-            }
-        }
+        
     }
 }
