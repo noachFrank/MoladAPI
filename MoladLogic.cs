@@ -1,5 +1,4 @@
-﻿using Microsoft.OpenApi.Extensions;
-using MoladAPI;
+﻿using MoladAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +15,7 @@ namespace MoladWithSearch
 
         private MoladObject _seedMolad;
 
-        private static List<JewishMonths> _cycle19Year;
+        private static List<string> _cycle19Year;
 
         private int _jewishYear;
 
@@ -33,7 +32,7 @@ namespace MoladWithSearch
             _seedMolad = new MoladObject
             {
                 Molad = new DateTime(2016, 10, 01, 14, 40, 13, 000),
-                JewishMonth = _cycle19Year[_index],
+                JewishMonth = $"{_cycle19Year[_index]}",
                 JewishYear = _jewishYear
             };
             //_jewishMonthAndYear = $"{_cycle19Year[_index]} of {_jewishYear}";
@@ -119,7 +118,7 @@ namespace MoladWithSearch
 
                 if (year >= _jewishYear)
                 {
-                    while (!(month.ToUpper() == _cycle19Year[_index].ToString().ToUpper() && year == _jewishYear))
+                    while (!(month.ToUpper() == _cycle19Year[_index] && year == _jewishYear))
                     {
                         GoForward();
                     }
@@ -127,7 +126,7 @@ namespace MoladWithSearch
 
                 else if (year <= _jewishYear)
                 {
-                    while (!(month.ToUpper() == _cycle19Year[_index].ToString().ToUpper() && year == _jewishYear))
+                    while (!(month.ToUpper() == _cycle19Year[_index] && year == _jewishYear))
                     {
                         GoBackward();
                     }
@@ -174,7 +173,7 @@ namespace MoladWithSearch
             {
                 // Increments The Molad By One
 
-                if (_cycle19Year[_index].ToString().ToUpper() == "ELUL")
+                if (_cycle19Year[_index] == "ELUL")
                 {
                     _jewishYear++;
                 }
@@ -189,7 +188,7 @@ namespace MoladWithSearch
                 }
 
                 _seedMolad.Molad = _seedMolad.Molad.AddDays(29).AddHours(12).AddMinutes(44).AddSeconds(3).AddMilliseconds(1000 / 3);
-                _seedMolad.JewishMonth = _cycle19Year[_index];
+                _seedMolad.JewishMonth = $"{_cycle19Year[_index]}";
                 _seedMolad.JewishYear = _jewishYear;
 
             }
@@ -205,7 +204,7 @@ namespace MoladWithSearch
             {
                 // Decrements The Molad By One
 
-                if (_cycle19Year[_index].ToString().ToUpper() == "TISHREI")
+                if (_cycle19Year[_index] == "TISHREI")
                 {
                     _jewishYear--;
                 }
@@ -220,7 +219,7 @@ namespace MoladWithSearch
                 }
 
                 _seedMolad.Molad = _seedMolad.Molad.AddDays(-29).AddHours(-12).AddMinutes(-44).AddSeconds(-3).AddMilliseconds(-(1000 / 3));
-                _seedMolad.JewishMonth = _cycle19Year[_index];
+                _seedMolad.JewishMonth = $"{_cycle19Year[_index]}";
                 _seedMolad.JewishYear = _jewishYear;
 
             }
@@ -231,46 +230,46 @@ namespace MoladWithSearch
 
         }
 
-        private static List<JewishMonths> JewishMonths()
+        private static List<string> JewishMonths()
         {
             try
             {
                 // Creates A List Of Jewish Months For A 19 Year Cycle
 
-                List<JewishMonths> regularYear = new List<JewishMonths>();
+                List<string> regularYear = new List<string>();
 
-                regularYear.Add(MoladAPI.JewishMonths.Tishrei);
-                regularYear.Add(MoladAPI.JewishMonths.Cheshvan);
-                regularYear.Add(MoladAPI.JewishMonths.Kislev);
-                regularYear.Add(MoladAPI.JewishMonths.Teves);
-                regularYear.Add(MoladAPI.JewishMonths.Shevat);
-                regularYear.Add(MoladAPI.JewishMonths.Adar);
-                regularYear.Add(MoladAPI.JewishMonths.Nissan);
-                regularYear.Add(MoladAPI.JewishMonths.Iyar);
-                regularYear.Add(MoladAPI.JewishMonths.Sivan);
-                regularYear.Add(MoladAPI.JewishMonths.Tamuz);
-                regularYear.Add(MoladAPI.JewishMonths.Av);
-                regularYear.Add(MoladAPI.JewishMonths.Elul);
+                regularYear.Add("TISHREI");
+                regularYear.Add("CHESHVAN");
+                regularYear.Add("KISLEV");
+                regularYear.Add("TEVES");
+                regularYear.Add("SHEVAT");
+                regularYear.Add("ADAR");
+                regularYear.Add("NISSAN");
+                regularYear.Add("IYAR");
+                regularYear.Add("SIVAN");
+                regularYear.Add("TAMUZ");
+                regularYear.Add("AV");
+                regularYear.Add("ELUL");
 
-                List<JewishMonths> leapYear = new List<JewishMonths>();
+                List<string> leapYear = new List<string>();
 
-                leapYear.Add(MoladAPI.JewishMonths.Tishrei);
-                leapYear.Add(MoladAPI.JewishMonths.Cheshvan);
-                leapYear.Add(MoladAPI.JewishMonths.Kislev);
-                leapYear.Add(MoladAPI.JewishMonths.Teves);
-                leapYear.Add(MoladAPI.JewishMonths.Shevat);
-                leapYear.Add(MoladAPI.JewishMonths.Adar1);
-                leapYear.Add(MoladAPI.JewishMonths.Adar2);
-                leapYear.Add(MoladAPI.JewishMonths.Nissan);
-                leapYear.Add(MoladAPI.JewishMonths.Iyar);
-                leapYear.Add(MoladAPI.JewishMonths.Sivan);
-                leapYear.Add(MoladAPI.JewishMonths.Tamuz);
-                leapYear.Add(MoladAPI.JewishMonths.Av);
-                leapYear.Add(MoladAPI.JewishMonths.Elul);
+                leapYear.Add("TISHREI");
+                leapYear.Add("CHESHVAN");
+                leapYear.Add("KISLEV");
+                leapYear.Add("TEVES");
+                leapYear.Add("SHEVAT");
+                leapYear.Add("ADAR 1");
+                leapYear.Add("ADAR 2");
+                leapYear.Add("NISSAN");
+                leapYear.Add("IYAR");
+                leapYear.Add("SIVAN");
+                leapYear.Add("TAMUZ");
+                leapYear.Add("AV");
+                leapYear.Add("ELUL");
 
 
 
-                List<JewishMonths> allYears = new List<JewishMonths>();
+                List<string> allYears = new List<string>();
 
                 for (int i = 1; i <= 19; i++)
                 {
