@@ -140,6 +140,34 @@ namespace MoladWithSearch
             }
         }
 
+        public void EnglishSearch(DateTime search)
+        {
+            //Finds the closest molad to the given date
+            try
+            {
+                var range = new MoladRange(search.AddDays(-14).AddHours(-18).AddMinutes(-22).AddSeconds(-3).AddMilliseconds(-(1000 / 3)),
+                                             search.AddDays(14).AddHours(18).AddMinutes(22).AddSeconds(3).AddMilliseconds(1000 / 3));
+                if(search >= _seedMolad.Molad)
+                {
+                    while (!range.IsInRange(_seedMolad.Molad))
+                    {
+                        GoForward();
+                    }
+                }
+                else
+                {
+                    while (!range.IsInRange(_seedMolad.Molad))
+                    {
+                        GoBackward();
+                    }
+                }
+            }
+            catch(Exception exc)
+            {
+
+            }
+        }
+
         public void GoForward()
         {
             try

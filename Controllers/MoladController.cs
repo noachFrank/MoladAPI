@@ -20,8 +20,8 @@ namespace MoladAPI.Controllers
             try
             {
                 var logic = new MoladLogic();
-                var molad = logic.GetMolad();
-                return new JsonResult(molad);
+                logic.EnglishSearch(DateTime.Today);
+                return new JsonResult(logic.GetMolad());
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace MoladAPI.Controllers
         }
 
         [HttpPost("SearchByEnglishDate")]
-        public IActionResult SearchByEnglishDate([FromBody]DateTime search)
+        public IActionResult SearchByEnglishDate(DateTime search)
         {
             try
             {
