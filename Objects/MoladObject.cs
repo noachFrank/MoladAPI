@@ -1,10 +1,10 @@
-﻿namespace MoladAPI
+﻿namespace MoladAPI.MoladObjects
 {
     public class MoladObject
     {
         public DateTime Molad { get; set; }
 
-        public string JewishMonth { get; set; }
+        public JewishMonths JewishMonth { get; set; }
 
         public int JewishYear { get; set; }
 

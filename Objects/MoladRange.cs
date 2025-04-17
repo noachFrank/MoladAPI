@@ -1,4 +1,4 @@
-﻿namespace MoladAPI
+﻿namespace MoladAPI.MoladObjects
 {
     public class MoladRange
     {
