@@ -1,6 +1,6 @@
 ﻿namespace MoladAPI.MoladObjects
 {
-     public enum JewishMonths
+    public enum JewishMonths
     {
         Tishrei,
         Cheshvan,

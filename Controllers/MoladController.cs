@@ -30,8 +30,8 @@ namespace MoladAPI.Controllers
             }
         }
 
-        [HttpPost("GoForward")]
-        public IActionResult GoForward([FromBody] string month, int year)
+        [HttpGet("GoForward")]
+        public IActionResult GoForward(string month, int year)
         {
             try
             {
@@ -47,8 +47,8 @@ namespace MoladAPI.Controllers
             }
         }
 
-        [HttpPost("GoBackward")]
-        public IActionResult GoBackward([FromBody] string month, int year)
+        [HttpGet("GoBackward")]
+        public IActionResult GoBackward(string month, int year)
         {
             try
             {
@@ -64,8 +64,8 @@ namespace MoladAPI.Controllers
             }
         }
 
-        [HttpPost("SearchByHebrewDate")]
-        public IActionResult SearchByHebrewDate([FromBody]string month, int year)
+        [HttpGet("SearchByHebrewDate")]
+        public IActionResult SearchByHebrewDate(string month, int year)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace MoladAPI.Controllers
             }
         }
 
-        [HttpPost("SearchByEnglishDate")]
+        [HttpGet("SearchByEnglishDate")]
         public IActionResult SearchByEnglishDate(DateTime search)
         {
             try
